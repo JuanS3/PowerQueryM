@@ -1,9 +1,9 @@
 <div align="center">
     <img src="assets/img/power_query_logo.png">
-</div>
-
-<div align="center">
-    <a href="README.md">Documentation in English 🇬🇧</a>
+    <br>
+    <a href="README_ES.md">
+        <img src="https://img.shields.io/badge/DOCUMENTATION-ENGLISH-orange"/>
+    </a>
 </div>
 
 <hr>
@@ -24,10 +24,10 @@ Este repositorio contiene un conjunto de funciones personalizadas para Power Que
 Para navegar por las diferentes funciones personalizadas, puede consultar la siguiente tabla:
 
 ---
-| Funcion | Desc | English Doc | Spanish Doc |
-|---|---|---|---|
-| fn_str2type | Convierte una cadena de texto en un tipo de dato. | [English Doc](functions/str2type/README.md) | [Spanish Doc](functions/str2type/README_ES.md) |
-| fn_split_column | Divide una cadena de texto en columnas y toma el valor en una columna indicada. | [English Doc](/functions/split_column/README.md) | [Spanish Doc](/functions/split_column/README_ES.md) |
+| Funcion | Desc | English Doc | Spanish Doc | Code |
+|---|---|---|---|---|
+| fn_str2type | Convierte una cadena de texto en un tipo de dato. | [English Doc](functions/str2type/README.md) | [Spanish Doc](functions/str2type/README_ES.md) | [Code](/functions/str2type/fn_str2type.pqm) |
+| fn_split_column | Divide una cadena de texto en columnas y toma el valor en una columna indicada. | [English Doc](/functions/split_column/README.md) | [Spanish Doc](/functions/split_column/README_ES.md) | [Code](/functions/split_column/fn_split_column.pqm) |
 
 ---
 

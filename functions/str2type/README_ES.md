@@ -1,5 +1,13 @@
 <div align="center">
-    <a href="README.md">Documentation in English 🇬🇧</a>
+    |
+    <a href="README.md">
+        <img src="https://img.shields.io/badge/DOCUMENTATION-ENGLISH-orange"/>
+    </a>
+    |
+    <a href="fn_str2type.pqm">
+        <img src="https://img.shields.io/badge/SOURCE CODE-POWER QUERY M-blue"/>
+    </a>
+    |
 </div>
 
 <hr>
