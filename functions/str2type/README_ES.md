@@ -63,6 +63,8 @@ null
 
 #### Opción 2: Código integrado:
 
+![Embedded Code](assets/img/power_query_embedded.gif)
+
 1. Pegue el código de la función directamente en la barra de fórmulas de Power Query.
 2. Presione `Enter` para ejecutar la función.
 3. Renombrar el query por el nombre la función y esta estará disponible para su uso en otras funciones y consultas.
