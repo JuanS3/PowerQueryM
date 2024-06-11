@@ -47,7 +47,7 @@ fn_split_column("a_b_c", 1, ",")     // Returns null
 
 #### Option 2: Embedded Code:
 
-![Embedded Code](/assets/img/power_query_embedded.mp4)
+https://github.com/JuanS3/PowerQueryM/assets/24811106/b8eea11c-be34-4f5c-a474-c8ab2f027c2c
 
 1. Paste the function code directly into the Power Query formula bar.
 2. Press the `Enter` to execute the function.
