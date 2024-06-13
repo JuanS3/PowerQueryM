@@ -7,7 +7,6 @@
 </div>
 
 <hr>
-<hr>
 
 # Power Query M / Custom Functions
 
