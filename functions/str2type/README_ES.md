@@ -61,15 +61,7 @@ null
 
 ### 1. Cargar la función:
 
-#### Opción 1: Desde un archivo externo:
-
-1. Copie el código de la función a un archivo de texto con la extensión `.pqm` o `.m`.
-2. Guarde el archivo en una carpeta accesible desde Power Query.
-3. En Power Query, vaya a la pestaña "Datos" y haga clic en "Obtener datos" > "Desde archivo" > "Desde archivo de texto/CSV".
-4. Seleccione el archivo que contiene la función y haga clic en "Abrir".
-5. En el cuadro de diálogo "Seleccionar tabla", marque la casilla junto a la función y haga clic en "Cargar".
-
-#### Opción 2: Código integrado:
+#### Código integrado:
 
 https://github.com/JuanS3/PowerQueryM/assets/24811106/b8eea11c-be34-4f5c-a474-c8ab2f027c2c
 

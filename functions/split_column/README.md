@@ -43,17 +43,7 @@ fn_split_column("a_b_c", 1, ",")     // Returns null
 
 ## Usage:
 
-### 1. Loading the function:
-
-#### Option 1: From an external file:
-
-1. Copy the function code to a text file with the extension `.pqm` or `.m`.
-2. Save the file to a folder accessible from Power Query.
-3. In Power Query, go to the "Data" tab and click "Get Data" > "From File" > "From Text/CSV File".
-4. Select the file that contains the function and click "Open".
-5. In the "Select Table" dialog box, check the box next to the function and click "Load".
-
-#### Option 2: Embedded Code:
+#### Embedded Code:
 
 https://github.com/JuanS3/PowerQueryM/assets/24811106/b8eea11c-be34-4f5c-a474-c8ab2f027c2c
 
