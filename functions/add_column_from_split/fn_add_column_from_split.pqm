@@ -1,0 +1,69 @@
+/*
+fn_add_platform_column
+
+    Esta función toma como entrada una tabla, una plataforma (o valor de texto) y, de forma
+    opcional, un nombre de columna. Luego, agrega una nueva columna a la tabla con el nombre
+    especificado o, si no se proporciona un nombre, se utiliza el nombre predeterminado
+    "platform". Cada fila de esta nueva columna tendrá el mismo valor de plataforma que se
+    especifica. La función es útil para asignar un valor de plataforma constante a una tabla
+    existente.
+
+Parameters
+----------
+    table_name: table
+        La tabla a la que se agregará la nueva columna.
+
+    platform: text
+        El valor de plataforma que se asignará a todas las filas de la nueva columna.
+
+    column_name: text, opcional
+        El nombre de la nueva columna. Si no se proporciona, se utilizará el nombre
+        predeterminado "platform".
+
+Returns
+-------
+    Una tabla que es una copia de la tabla de entrada con la nueva columna agregada.
+
+Examples
+--------
+    >>> fn_add_platform_column(
+    ...    Table.FromRecords({
+    ...        [campaign_name = "Campaign A"],
+    ...        [campaign_name = "Campaign B"]
+    ...    }),
+    ...    "Facebook",
+    ...    "PlatformName"
+    ... )
+    table(
+        {"campaign_name", "PlatformName"},
+        {
+            {"Campaign A", "Facebook"},
+            {"Campaign B", "Facebook"}
+        }
+    )
+
+    Esto agrega una nueva columna llamada "PlatformName" a la tabla con el valor "Facebook"
+    en cada fila de la columna "PlatformName". Si no se proporciona un nombre de columna,
+    se utilizará el nombre predeterminado "platform".
+*/
+let
+    Source = (
+    table_name as table,
+    platform as text,
+    optional column_name as text
+) =>
+
+    Table.AddColumn(
+        table_name,
+
+        if column_name <> null then
+            column_name
+        else
+            "platform",
+
+        each platform,
+
+        type text
+    )
+in
+    Source
