@@ -1,69 +1,89 @@
-/*
-fn_add_platform_column
-
-    Esta función toma como entrada una tabla, una plataforma (o valor de texto) y, de forma
-    opcional, un nombre de columna. Luego, agrega una nueva columna a la tabla con el nombre
-    especificado o, si no se proporciona un nombre, se utiliza el nombre predeterminado
-    "platform". Cada fila de esta nueva columna tendrá el mismo valor de plataforma que se
-    especifica. La función es útil para asignar un valor de plataforma constante a una tabla
-    existente.
-
-Parameters
-----------
-    table_name: table
-        La tabla a la que se agregará la nueva columna.
-
-    platform: text
-        El valor de plataforma que se asignará a todas las filas de la nueva columna.
-
-    column_name: text, opcional
-        El nombre de la nueva columna. Si no se proporciona, se utilizará el nombre
-        predeterminado "platform".
-
-Returns
--------
-    Una tabla que es una copia de la tabla de entrada con la nueva columna agregada.
-
-Examples
---------
-    >>> fn_add_platform_column(
-    ...    Table.FromRecords({
-    ...        [campaign_name = "Campaign A"],
-    ...        [campaign_name = "Campaign B"]
-    ...    }),
-    ...    "Facebook",
-    ...    "PlatformName"
-    ... )
-    table(
-        {"campaign_name", "PlatformName"},
-        {
-            {"Campaign A", "Facebook"},
-            {"Campaign B", "Facebook"}
-        }
-    )
-
-    Esto agrega una nueva columna llamada "PlatformName" a la tabla con el valor "Facebook"
-    en cada fila de la columna "PlatformName". Si no se proporciona un nombre de columna,
-    se utilizará el nombre predeterminado "platform".
-*/
 let
-    Source = (
-    table_name as table,
-    platform as text,
-    optional column_name as text
-) =>
+    fn_add_column_from_split_documentation = type function (
+        tbl as (type table meta [
+            Documentation.FieldCaption = "Table",
+            Documentation.FieldDescription = "The table to which the new column will be added.",
+            Documentation.SampleValues = {
+                "sebastian_martinez",
+                "the_one_code_is_real",
+                "sebastian martinez",
+                "the one code is real"
+            }
+        ]),
+        new_column_name as (type text meta [
+            Documentation.FieldCaption = "New Column Name",
+            Documentation.FieldDescription = "The name of the new column that will be added to the table.",
+            Documentation.SampleValues = { "first_name", "last_name" }
+        ]),
+        column_to_split as (type text meta [
+            Documentation.FieldCaption = "Column to Split",
+            Documentation.FieldDescription = "The column from which the text will be split.",
+            Documentation.SampleValues = { "full_name", "code" }
+        ]),
+        data_type as (type text meta [
+            Documentation.FieldCaption = "Value Type",
+            Documentation.FieldDescription = "Data type to which the text value will be converted, accepted values are: int, float, bool, date.",
+            Documentation.SampleValues = { "int", "float", "bool", "date" }
+        ]),
+        position as (type number meta [
+            Documentation.FieldCaption = "Position",
+            Documentation.FieldDescription = "Position index of the part of the text to be returned. The position index starts at 0.",
+            Documentation.SampleValues = { 0, 1, 2, 3 }
+        ]),
+        optional delimiter as (type text meta [
+            Documentation.FieldCaption = "Delimiter",
+            Documentation.FieldDescription = "Delimiter character to be used for splitting the text string. The default is ""_"".",
+            Documentation.SampleValues = { "_", "-", ".", " " }
+        ])
+    ) as table meta [
+        Documentation.Name = "fn_add_column_from_split",
+        Documentation.LongDescription = "This function adds a new column to an existing table. The new column is created by splitting the values of an existing column at a specified split position. The values of the new column can be converted into different data types.",
+            Documentation.Author = "Sebastian Martinez https://JuanS3.github.io"
+        ],
+
+    fn_add_column_from_split_impl = (
+        tbl as table,
+        new_column_name as text,
+        column_to_split as text,
+        split_position as number,
+        col_type as text,
+        optional delimiter as text
+    ) =>
 
     Table.AddColumn(
-        table_name,
 
-        if column_name <> null then
-            column_name
+        tbl,
+
+        new_column_name,
+
+        each
+            let
+                col_value =
+                    fn_split_column(
+                        Record.Field(_, column_to_split),
+                        split_position,
+                        delimiter
+                    ),
+                col_result =
+                    if col_type <> "text" then
+                        fn_str2type(col_value, col_type)
+                    else
+                        col_value
+            in
+                col_result,
+
+        if col_type = "text" then
+            type text
+        else if col_type = "int" then
+            Int64.Type
+        else if col_type = "float" then
+            type number
+        else if col_type = "date" then
+            type date
+        else if col_type = "bool" then
+            type logical
         else
-            "platform",
-
-        each platform,
-
-        type text
+            type text
     )
 in
-    Source
+    Value.Replace(fn_add_column_from_split_documentation, fn_add_column_from_split_impl)
