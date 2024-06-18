@@ -19,7 +19,7 @@ La función `fn_add_column_from_split` agrega una nueva columna a una tabla exis
 ## Syntax
 
 ```m
-fn_add_column_from_split(tabla, nombre_nueva_columna, nombre_columna_a_dividir, tipo_dato, delimitador)
+fn_add_column_from_split(tabla, nombre_nueva_columna, nombre_columna_a_dividir, posicion, tipo_dato, delimitador)
 ```
 
 ### Parameters
@@ -27,6 +27,7 @@ fn_add_column_from_split(tabla, nombre_nueva_columna, nombre_columna_a_dividir, 
 - **`tabla` (tabla)**: La tabla a la que se agregará la nueva columna.
 - **`nombre_nueva_columna` (texto)**: El nombre de la nueva columna que se creará.
 - **`nombre_columna_a_dividir` (texto)**: El nombre de la columna que se utilizará para dividir los valores.
+- **`posicion` (entero)**: La posición de la nueva columna en la tabla.
 - **`tipo_dato` (texto, opcional)**: Tipo de datos al que se intentará convertir el valor de texto, los valores aceptados son:
     - `text` : Valor de texto, este es el valor por defecto.
     - `int` : Número entero de 64 bits con signo.

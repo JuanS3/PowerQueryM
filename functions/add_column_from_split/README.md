@@ -19,13 +19,14 @@ The `fn_add_column_from_split` function adds a new column to an existing table. 
 ## Syntax
 
 ```m
-fn_add_column_from_split(table, new_column_name, column_to_split, data_type, delimiter)
+fn_add_column_from_split(table, new_column_name, column_to_split, position, data_type, delimiter)
 ```
 
 ### Parameters
 - **`table` (table)**: The table to which the new column will be added.
 - **`new_column_name` (text)**: The name of the new column to be created.
 - **`column_to_split` (text)**: The name of the column to be used for splitting the values.
+- **`position` (int)**: The position at which the new column will be created.
 - **`data_type` (text, optional)**: Data type to which the text value will be converted. Accepted values are:
     - `text` : Text value, this is the default value.
     - `int` : 64-bit signed integer.
