@@ -28,6 +28,7 @@ Para navegar por las diferentes funciones personalizadas, puede consultar la sig
 |---|---|---|---|---|
 | fn_str2type | Convierte una cadena de texto en un tipo de dato. | [English Doc](functions/str2type/README.md) | [Spanish Doc](functions/str2type/README_ES.md) | [Code](/functions/str2type/fn_str2type.pqm) |
 | fn_split_column | Divide una cadena de texto en columnas y toma el valor en una columna indicada. | [English Doc](/functions/split_column/README.md) | [Spanish Doc](/functions/split_column/README_ES.md) | [Code](/functions/split_column/fn_split_column.pqm) |
+| fn_add_column_from_split | Agrega una nueva columna a una tabla existente. | [English Doc](/functions/add_column_from_split/README.md) | [Spanish Doc](/functions/add_column_from_split/README_ES.md) | [Code](/functions/add_column_from_split/fn_add_column_from_split.pqm) |
 
 ---
 

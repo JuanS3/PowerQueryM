@@ -28,6 +28,7 @@ To explore the various custom functions available, refer to the following table:
 |---|---|---|---|---|
 | fn_str2type | Converts a text string to a specified data type. | [English Documentation](functions/str2type/README.md) | [Spanish Documentation](functions/str2type/README_ES.md) | [Code](/functions/str2type/fn_str2type.pqm) |
 | fn_split_column | Splits a text string into columns and extracts the value from a designated column. | [English Documentation](/functions/split_column/README.md) | [Spanish Documentation](/functions/split_column/README_ES.md) | [Code](/functions/split_column/fn_split_column.pqm) |
+| fn_add_column_from_split | Adds a new column to an existing table. | [Englis Documentation](/functions/add_column_from_split/README.md) | [Spanish Documentation](/functions/add_column_from_split/README_ES.md) | [Code](/functions/add_column_from_split/fn_add_column_from_split.pqm) |
 
 ---
 
