@@ -1,7 +1,7 @@
 <div align="center">
     <img src="assets/img/power_query_logo.png">
     <br>
-    <a href="README_ES.md">
+    <a href="README.md">
         <img src="https://img.shields.io/badge/DOCUMENTATION-ENGLISH-orange"/>
     </a>
 </div>
