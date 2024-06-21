@@ -4,7 +4,7 @@
         <img src="https://img.shields.io/badge/DOCUMENTACIÓN-ESPAÑOL-orange"/>
     </a>
     |
-    <a href="fn_split_column.pqm">
+    <a href="fn_add_column_from_split.pqm">
         <img src="https://img.shields.io/badge/SOURCE CODE-POWER QUERY M-blue"/>
     </a>
     |
