@@ -29,6 +29,7 @@ To explore the various custom functions available, refer to the following table:
 | fn_str2type | Converts a text string to a specified data type. | [English Documentation](functions/str2type/README.md) | [Spanish Documentation](functions/str2type/README_ES.md) | [Code](/functions/str2type/fn_str2type.pqm) |
 | fn_split_column | Splits a text string into columns and extracts the value from a designated column. | [English Documentation](/functions/split_column/README.md) | [Spanish Documentation](/functions/split_column/README_ES.md) | [Code](/functions/split_column/fn_split_column.pqm) |
 | fn_add_column_from_split | Adds a new column to an existing table. | [Englis Documentation](/functions/add_column_from_split/README.md) | [Spanish Documentation](/functions/add_column_from_split/README_ES.md) | [Code](/functions/add_column_from_split/fn_add_column_from_split.pqm) |
+| fn_add_columns_naming_convention | Adds new columns to a table with names combining the table and column name, split by a delimiter | [Englis Documentation](/functions/add_column_by_naming/README.md) | [Spanish Documentation](/functions/add_columns_by_naming/README_ES.md) | [Code](/functions/add_columns_by_naming/fn_add_columns_by_naming_convention.pqm) |
 
 ---
 
