@@ -1,0 +1,73 @@
+
+let
+    fn_add_columns_naming_convention_documentation = type function (
+        table_name as (type table meta [
+            Documentation.FieldCaption = "Table",
+            Documentation.FieldDescription = "Table to which the new columns will be added.",
+            Documentation.SampleValues = { Table.FromRecords({[col1="value1", col2="value2"]}) }
+        ]),
+        col_2_split as (type text meta [
+            Documentation.FieldCaption = "Column to Split",
+            Documentation.FieldDescription = "Name of the column to be split.",
+            Documentation.SampleValues = { "full_name" }
+        ]),
+        columns as (type list meta [
+            Documentation.FieldCaption = "Columns",
+            Documentation.FieldDescription = "List of columns specifications, where each specification is a list with two elements: 1. The name of the new column to be created, 2. The type of column to add ('text' for text values or 'int' for integer values).",
+            Documentation.SampleValues = { {{"first_name", "text"}, {"last_name", "text"}} }
+        ]),
+        start_split as (type number meta [
+            Documentation.FieldCaption = "Start Split",
+            Documentation.FieldDescription = "Initial number of the column in the list of columns to add.",
+            Documentation.SampleValues = { 0 }
+        ]),
+        end_split as (type number meta [
+            Documentation.FieldCaption = "End Split",
+            Documentation.FieldDescription = "Final number of the column in the list of columns to add.",
+            Documentation.SampleValues = { 1 }
+        ]),
+        optional delimiter as (type text meta [
+            Documentation.FieldCaption = "Delimiter",
+            Documentation.FieldDescription = "Delimiter between the table name and the column name.",
+            Documentation.SampleValues = { "_" }
+        ])
+    ) as table meta [
+        Documentation.Name = "fn_add_columns_naming_convention",
+        Documentation.LongDescription = "This function receives a table and a list of columns and returns the table with the columns added with the column name and table name separated by a delimiter.",
+        Documentation.Author = "Sebastian Martinez https://JuanS3.github.io"
+    ],
+
+    fn_add_columns_naming_convention_impl = (
+        table_name as table,
+        col_2_split as text,
+        columns as list,
+        start_split as number,
+        end_split as number,
+        optional delimiter as text
+    ) =>
+        if start_split = end_split then
+            table_name
+        else
+            let
+                col_name = columns{start_split}{0},
+                col_type = columns{start_split}{1},
+                added_columns =
+                    @fn_add_columns_naming_convention(
+                        fn_add_column_from_split(
+                            table_name,
+                            col_name,
+                            col_2_split,
+                            start_split,
+                            col_type,
+                            delimiter
+                        ),
+                        col_2_split,
+                        columns,
+                        start_split + 1,
+                        end_split,
+                        delimiter
+                    )
+            in
+                added_columns
+in
+    Value.Replace(fn_add_columns_naming_convention_documentation, fn_add_columns_naming_convention_impl)
